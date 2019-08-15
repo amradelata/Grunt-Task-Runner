@@ -2,6 +2,7 @@
 
 
 module.exports = function(grunt) {
+
     //configuration
     grunt.initConfig({
         concat: {
@@ -14,15 +15,25 @@ module.exports = function(grunt) {
                 src: ['css/*.css'],
                 dest: 'build/style.css'
             }
+        },
+        uglify: {
+            build: {
+                files: [{
+                    src: 'build/scripts.js',
+                    dest: 'build/scripts.js'
+                }]
+            }
         }
+         });
 
-    });
 
 
     // load plugins
 
 
      grunt.loadNpmTasks("grunt-contrib-concat");
+     grunt.loadNpmTasks("grunt-sass");
+     grunt.loadNpmTasks("grunt-contrib-uglify");
 
 
     //Register tasks
@@ -35,4 +46,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('all', ['sleep', 'run']);
+
+    
 };
